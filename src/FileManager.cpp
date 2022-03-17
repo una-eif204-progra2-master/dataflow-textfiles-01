@@ -4,6 +4,11 @@
 
 #include "FileManager.h"
 
+/**
+ * This function save data into Text File
+ * @param physicalProduct the object to save in the text file
+ * @param fileName the name of the text file
+ */
 void FileManager::save(const PhysicalProduct &physicalProduct, const string &fileName) {
 
     // Create and open a text file
@@ -16,6 +21,11 @@ void FileManager::save(const PhysicalProduct &physicalProduct, const string &fil
     myFile.close();
 }
 
+/**
+ * Read a text file line by line
+ * @param filename the name of the file
+ * @return the string of the concatenate line text
+ */
 string FileManager::readByLine(const string &filename) {
 
     // Create a text string, which is used to output the text file
@@ -41,6 +51,11 @@ string FileManager::readByLine(const string &filename) {
     return myText;
 }
 
+/**
+ * Read a text file full content in only one sentence
+ * @param filename the name of the file
+ * @return the full text content
+ */
 string FileManager::readByContent(const string &filename) {
     // Create a text string, which is used to output the text file
     string content;
@@ -51,6 +66,8 @@ string FileManager::readByContent(const string &filename) {
         throw invalid_argument("Could not open the file [" + filename + "]");
     }
 
+    // With this line you can read the full content of a text file
+    // https://en.cppreference.com/w/cpp/iterator/istreambuf_iterator
     content.assign((istreambuf_iterator<char>(myReadFile)),
                    (istreambuf_iterator<char>()));
 
