@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(my_project_name)
+project(dataflow-textfiles-01)
 
 set(CMAKE_CXX_STANDARD 14)
 
